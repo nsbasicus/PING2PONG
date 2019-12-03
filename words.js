@@ -4,9 +4,10 @@
 
 let phrase = {} ;
 
+// Return random Uint32Array(1) 
 var secureRandom = function(count) {
-	var result
 	var rand = new Uint32Array(1)
+	var result
 	var skip = 0x7fffffff - 0x7fffffff % count
   
 	if (((count - 1) & count) === 0) {
@@ -17,12 +18,11 @@ var secureRandom = function(count) {
 		window.crypto.getRandomValues(rand)
 		result = rand[0] & 0x7fffffff
 	} while (result >= skip)
-	
   return result % count
 }
 
 phrase.get = function(n) {
-	var pass = [] 
+	var pass = [] // array of words. 
 	for (var i = 0; i < n; i++) {
 		pass.push(phrase.words[secureRandom(phrase.words.length)]) 
 	}
