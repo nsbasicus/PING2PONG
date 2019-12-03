@@ -4,7 +4,8 @@
 
 let phrase = {} ;
 
-// Return random Uint32Array(1) 
+// returns random value from array.lenght
+
 var secureRandom = function(count) {
 	var rand = new Uint32Array(1)
 	var result
@@ -21,6 +22,7 @@ var secureRandom = function(count) {
   return result % count
 }
 
+// returns random words words from array
 phrase.get = function(n) {
 	var pass = [] // array of words. 
 	for (var i = 0; i < n; i++) {
